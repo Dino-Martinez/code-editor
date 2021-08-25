@@ -6,6 +6,7 @@ import 'codemirror/addon/display/autorefresh'
 import 'codemirror/addon/comment/comment'
 import 'codemirror/addon/edit/matchbrackets'
 import 'codemirror/keymap/sublime'
+import './themes/dark.css'
 
 function App () {
   const [code, setCode] = useState('')
@@ -13,7 +14,7 @@ function App () {
 
   return (
     <div className='container'>
-      <select onChange={(e) => { setLanguage(e.target.value) }}>
+      <select className='language-selector' onChange={(e) => { setLanguage(e.target.value) }}>
         <option value='js'>JavaScript</option>
         <option value='python'>Python</option>
         <option value='c#'>C#</option>
