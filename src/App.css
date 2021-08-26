@@ -7,3 +7,66 @@
   margin-top: 2rem;
   font-size: 1.5rem;
 }
+
+.ui-button {
+  background: transparent;
+  border-radius: 50%;
+  border: 1px solid lightskyblue;
+  color: lightskyblue;
+  font-size: 1rem;
+  width: 2em;
+  height: 2em;
+  position: relative;
+  margin: .5rem 1rem;
+}
+
+.ui-button:hover {
+  cursor: pointer;
+  color: lightgreen;
+  background: lightseagreen;
+}
+
+.ui-button > svg {
+  width: 1.25em!important;
+  height: 1.25em!important;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-43%, -50%);
+}
+
+.loader {
+  display: flex;
+  margin: 0 1.5rem;
+}
+
+.loading {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  margin: 0 1rem;
+  background: lightcoral;
+  animation: loading-dot 1500ms ease-in-out infinite;
+}
+
+.loading:nth-child(2) {
+  animation-delay: 500ms;
+}
+
+.loading:nth-child(3) {
+  animation-delay: 1000ms;
+}
+
+@keyframes loading-dot {
+  15.1515151515% {
+    transform: scale(0.1);
+  }
+  
+  33.333333333% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}

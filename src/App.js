@@ -3,6 +3,9 @@ import React, { useState } from 'react'
 
 import { encode, decode } from 'js-base64'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlay } from '@fortawesome/free-solid-svg-icons'
+
 import CodeMirror from '@uiw/react-codemirror'
 import 'codemirror/addon/display/autorefresh'
 import 'codemirror/addon/comment/comment'
@@ -72,7 +75,7 @@ function App () {
         <option value='java'>Java</option>
       </select>
       
-      <button onClick={compileCode}>Compile</button>
+      <button className='ui-button' onClick={compileCode}><FontAwesomeIcon icon={faPlay} /></button>
 
       <div className='editor'>
         <CodeMirror
@@ -92,7 +95,11 @@ function App () {
       
       <div className='output'>
         {loading && 
-          <p>Loading...</p>
+          <div className='loader'>
+            <div className='loading'></div>
+            <div className='loading'></div>
+            <div className='loading'></div>
+          </div>
         }
         <p>{result}</p>
       </div>
