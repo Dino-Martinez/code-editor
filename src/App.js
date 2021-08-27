@@ -61,40 +61,45 @@ function App () {
 
   return (
     <div className='container'>
-      <select className='language-selector' onChange={(e) => { setLanguage(e.target.value) }}>
-        <option value='js'>JavaScript</option>
-        <option value='ts'>TypeScript</option>
-        <option value='python2'>Python 2</option>
-        <option value='python'>Python 3</option>
-        <option value='c#'>C#</option>
-        <option value='c'>C</option>
-        <option value='c++'>C++</option>
-        <option value='java'>Java</option>
-      </select>
-      
-      <button onClick={compileCode}>Compile</button>
+      <div className='ui-bar'>
+        <select className='language-selector' onChange={(e) => { setLanguage(e.target.value) }}>
+          <option value='js'>JavaScript</option>
+          <option value='ts'>TypeScript</option>
+          <option value='python2'>Python 2</option>
+          <option value='python'>Python 3</option>
+          <option value='c#'>C#</option>
+          <option value='c'>C</option>
+          <option value='c++'>C++</option>
+          <option value='java'>Java</option>
+        </select>
+        
+        <button onClick={compileCode}>Compile</button>
 
-      <div className='editor'>
-        <CodeMirror
-          value={code}
-          onChange={(editor, data) => {
-            setCode(editor.getValue())
-          }}
-          height='100%'
-          width='100%'
-          options={{
-            theme: 'dark',
-            keyMap: 'sublime',
-            mode: mode
-          }}
-        />
       </div>
-      
-      <div className='output'>
-        {loading && 
-          <p>Loading...</p>
-        }
-        <p>{result}</p>
+
+      <div className='ide'>
+        <div className='editor'>
+          <CodeMirror
+            value={code}
+            onChange={(editor, data) => {
+              setCode(editor.getValue())
+            }}
+            height='100%'
+            width='100%'
+            options={{
+              theme: 'dark',
+              keyMap: 'sublime',
+              mode: mode
+            }}
+          />
+        </div>
+        
+        <div className='output'>
+          {loading && 
+            <p>Loading...</p>
+          }
+          <p>{result}</p>
+        </div>
       </div>
     </div>
   )

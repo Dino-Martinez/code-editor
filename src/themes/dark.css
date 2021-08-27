@@ -3,7 +3,7 @@
   --clr-text               : #f8f8f2;
   --clr-gutters            : #272822;
   --clr-gutter-marker      : #fff;
-  --clr-gutter-marker-muted: #d0d0d0;
+  --clr-gutter-marker-muted: #8a8a8a;
   --clr-selection          : #49483E;
   --clr-line-numbers       : #d0d0d0;
   --clr-cursor             : #f8f8f0;
@@ -35,8 +35,8 @@
 .cm-s-dark.CodeMirror {
   background   : var(--clr-background);
   color        : var(--clr-text);
-  padding      : 1em 0;
-  border-radius: 5px;
+  padding      : 0 0;
+  border-radius: 0;
 }
 
 .cm-s-dark div.CodeMirror-selected {
