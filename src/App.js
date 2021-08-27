@@ -34,29 +34,35 @@ function App () {
 
   const compileCode = async () => {
     setLoading(true)
+    setResult('')
+    
+    let output = 'There was an error compiling your code'
+    try {
+      const encodedCode = encode(code)
 
-    const encodedCode = encode(code)
-
-    const body = {
-      'language_id': languageCodes[language],
-      'source_code': encodedCode,
-      'stdin': 'SnVkZ2Uw'
+      const body = {
+        'language_id': languageCodes[language],
+        'source_code': encodedCode,
+        'stdin': 'SnVkZ2Uw'
+      }
+  
+      const res = 
+      await fetch("https://judge0-ce.p.rapidapi.com/submissions?base64_encoded=true&wait=true&fields=*", {
+        'method': 'POST',
+        'mode': 'cors',
+        'headers': {
+          'content-type': 'application/json',
+          'x-rapidapi-host': 'judge0-ce.p.rapidapi.com',
+          'x-rapidapi-key': '61fe7c62d2msh25a9210654659d5p16fd9djsn76a3a8332105'
+        },
+        'body': JSON.stringify(body)
+      })
+  
+      const json = await res.json()
+      output = decode(json.stdout)
+    } catch (e) {
+      console.log(e)
     }
-
-    const res = 
-    await fetch("https://judge0-ce.p.rapidapi.com/submissions?base64_encoded=true&wait=true&fields=*", {
-      'method': 'POST',
-      'mode': 'cors',
-      'headers': {
-        'content-type': 'application/json',
-        'x-rapidapi-host': 'judge0-ce.p.rapidapi.com',
-        'x-rapidapi-key': '61fe7c62d2msh25a9210654659d5p16fd9djsn76a3a8332105'
-      },
-      'body': JSON.stringify(body)
-    })
-
-    const json = await res.json()
-    const output = decode(json.stdout)
 
     setLoading(false)
     setResult(output)

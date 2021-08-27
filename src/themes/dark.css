@@ -30,6 +30,8 @@
   --clr-error              : #f92672;
   --clr-error-text         : #f8f8f0;
   --clr-active-line        : #373831;
+  --clr-compile            : #a6e22e;
+  --clr-compile-focused    : #373831;
 }
 
 .cm-s-dark.CodeMirror {
